@@ -10,14 +10,40 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 400px; /* Limita el ancho máximo para que no se expanda demasiado en pantallas grandes */
+        }
+        .status-bar {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            width: 100%; /* Ocupa todo el ancho disponible */
+        }
+        .reset-button {
+            margin: 20px 0;
+            text-align: center;
         }
         .card {
-            margin-top: 20px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+            width: 100%; /* Hace que la tarjeta ocupe todo el ancho disponible */
         }
         .card-image img {
             height: 200px;
             object-fit: cover;
+            width: 100%; /* Asegura que la imagen ocupe todo el ancho */
         }
         .card-title {
             background-color: rgba(0, 0, 0, 0.5);
@@ -42,45 +68,32 @@
         a:hover {
             cursor: pointer;
         }
-        .status-bar {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .reset-button {
-            margin: 20px 0;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
-    <div class="status-bar" id="status-bar">Status del carrito: vacío</div>
-    <div class="reset-button">
-        <button class="btn waves-effect waves-light" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6 l4">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="images/cama.jpg" alt="Producto">
-                        <span class="card-title">Colchón ortopédico</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Este es un conjunto increíble, ayudará a mejorar tu descanso. ¡Compra ya!</p>
-                    </div>
-                    <div class="card-action">
-                        <a onclick="agregarCarrito()">
-                            <i class="material-icons">add_shopping_cart</i>
-                            Agregar al Carrito
-                        </a>
-                        <a href="https://www.amazon.com.mx/Colch%C3%B3n-Ortop%C3%A9dico-Base-Elegante-Regalo/dp/B0CPN2RGRY?th=1" target="_blank">Ver Más</a>
-                    </div>
-                </div>
+    <div class="content-container">
+        <div class="status-bar" id="status-bar">Status del carrito: vacío</div>
+        <div class="reset-button">
+            <button class="btn waves-effect waves-light" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="images/cama.jpg" alt="Producto">
+                <span class="card-title">Colchón ortopédico</span>
+            </div>
+            <div class="card-content">
+                <p>Este es un conjunto increíble, ayudará a mejorar tu descanso. ¡Compra ya!</p>
+            </div>
+            <div class="card-action">
+                <a onclick="agregarCarrito()">
+                    <i class="material-icons">add_shopping_cart</i>
+                    Agregar al Carrito
+                </a>
+                <a href="https://www.amazon.com.mx/Colch%C3%B3n-Ortop%C3%A9dico-Base-Elegante-Regalo/dp/B0CPN2RGRY?th=1" target="_blank">Ver Más</a>
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         let contadorCarrito = 0;
