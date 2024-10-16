@@ -5,29 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarjeta de Producto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .card {
+            margin-top: 50px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-image img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .card-action a {
+            color: #00796B;
+            display: flex;
+            align-items: center;
+        }
+        .card-action a:hover {
+            color: #004D40;
+        }
+        .material-icons {
+            margin-right: 5px;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="images/youtube.png" alt="Producto">
-                        <span class="card-title">Nombre del Producto: YouTube</span>
+                        <img src="images/cama.jpg" alt="Producto">
+                        <span class="card-title">Colchón ortopédico</span>
                     </div>
                     <div class="card-content">
-                        <p>Descripción breve del producto. Incluye características y beneficios.</p>
+                        <p>Este es un conjunto increíble, ayudará a mejorar tu descanso. ¡Compra ya!</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Agregar al Carrito</a>
-                        <a href="#">Ver Más</a>
+                        <a onclick="agregarCarrito()">
+                            <i class="material-icons">add_shopping_cart</i>
+                            Agregar al Carrito
+                        </a>
+                        <a href="https://www.amazon.com.mx/Colch%C3%B3n-Ortop%C3%A9dico-Base-Elegante-Regalo/dp/B0CPN2RGRY?th=1" target="_blank">Ver Más</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function agregarCarrito() {
+            alert("Producto agregado al carrito");
+        }
+    </script>
 </body>
 </html>
