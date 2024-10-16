@@ -39,12 +39,26 @@
         .material-icons {
             margin-right: 5px;
         }
-        a:hover{
+        a:hover {
             cursor: pointer;
+        }
+        .status-bar {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .reset-button {
+            margin: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <div class="status-bar" id="status-bar">Status del carrito: vacío</div>
+    <div class="reset-button">
+        <button class="btn waves-effect waves-light" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col s12 m6 l4">
@@ -69,8 +83,18 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
+        let contadorCarrito = 0;
+
         function agregarCarrito() {
-            alert("Producto agregado al carrito");
+            contadorCarrito++;
+            const statusBar = document.getElementById('status-bar');
+            statusBar.textContent = `Status del carrito: ${contadorCarrito} producto${contadorCarrito > 1 ? 's' : ''}`;
+        }
+
+        function reiniciarCarrito() {
+            contadorCarrito = 0;
+            const statusBar = document.getElementById('status-bar');
+            statusBar.textContent = 'Status del carrito: vacío';
         }
     </script>
 </body>
