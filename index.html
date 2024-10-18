@@ -10,54 +10,9 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
             transition: background-color 0.3s, color 0.3s;
-        }
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 400px;
-        }
-        .status-bar {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        .reset-button {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .card {
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            width: 100%;
-        }
-        .card-image img {
-            height: 200px;
-            object-fit: cover;
-        }
-        .card-action a {
-            color: #00796B;
-            display: flex;
-            align-items: center;
-        }
-        .card-action a:hover {
-            color: #004D40;
-        }
-        .material-icons {
-            margin-right: 5px;
-        }
-        a:hover {
-            cursor: pointer;
         }
         .dark-mode {
             background-color: #121212;
@@ -70,9 +25,8 @@
             background-color: #1e1e1e;
             box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.2);
         }
-        .dark-mode .card-title {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: black;
+        .dark-mode .card-title {            
+            color: white;
         }
         .dark-mode .card-action a {
             color: #80cbc4;
@@ -83,30 +37,27 @@
     </style>
 </head>
 <body>
-    <div class="content-container">
-        <div class="status-bar" id="status-bar">Status del carrito: vacío</div>
-        <div class="reset-button">
-            <button class="btn waves-effect waves-light" onclick="reiniciarCarrito()">Reiniciar Carrito</button>
-            <button class="btn waves-effect waves-light" onclick="toggleMode()">Cambiar Modo</button>
+    <div class="container center-align">
+        <div class="status-bar card-panel teal lighten-4" id="status-bar">Status del carrito: vacío</div>
+        <div class="section">
+            <button class="btn waves-effect waves-light" onclick="reiniciarCarrito()">Vaciar carrito</button>
+            <button class="btn waves-effect waves-light" onclick="toggleMode()">Cambiar modo</button>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="images/cama.jpg" alt="Producto">                            
-                        </div>                        
-                        <div class="card-content">
-                            <p class="card-title">Colchón ortopédico</p>
-                            <p>Este es un conjunto increíble, ayudará a mejorar tu descanso. ¡Compra ya!</p>
-                        </div>
-                        <div class="card-action">
-                            <a onclick="agregarCarrito()">
-                                <i class="material-icons">add_shopping_cart</i>
-                                Agregar al Carrito
-                            </a>
-                            <a href="https://www.amazon.com.mx/Colch%C3%B3n-Ortop%C3%A9dico-Base-Elegante-Regalo/dp/B0CPN2RGRY?th=1" target="_blank">Ver Más</a>
-                        </div>
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/cama.jpg" alt="Producto" class="responsive-img">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Colchón ortopédico</span>
+                        <p>Este es un conjunto increíble, ayudará a mejorar tu descanso. ¡Compra ya!</p>
+                    </div>
+                    <div class="card-action">
+                        <a onclick="agregarCarrito()" class="waves-effect waves-teal">
+                            <i class="material-icons left">add_shopping_cart</i>Agregar al Carrito
+                        </a>
+                        <a href="https://www.amazon.com.mx/Colch%C3%B3n-Ortop%C3%A9dico-Base-Elegante-Regalo/dp/B0CPN2RGRY?th=1" target="_blank">Ver Más</a>
                     </div>
                 </div>
             </div>
@@ -115,19 +66,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         let contadorCarrito = 0;
-
         function agregarCarrito() {
             contadorCarrito++;
             const statusBar = document.getElementById('status-bar');
             statusBar.textContent = `Status del carrito: ${contadorCarrito} producto${contadorCarrito > 1 ? 's' : ''}`;
         }
-
         function reiniciarCarrito() {
             contadorCarrito = 0;
             const statusBar = document.getElementById('status-bar');
             statusBar.textContent = 'Status del carrito: vacío';
         }
-
         function toggleMode() {
             document.body.classList.toggle('dark-mode');
         }
